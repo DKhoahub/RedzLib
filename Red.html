@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Vietnam Secure Page</title>
+<style>
+body{
+    background: linear-gradient(135deg,#000,#0f2027,#203a43,#2c5364);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+.box{
+    background:rgba(0,0,0,0.7);
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 0 25px #00ffcc;
+    width:300px;
+}
+input{
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    width:90%;
+    margin-top:10px;
+}
+button{
+    padding:12px;
+    border:none;
+    background:#00ffcc;
+    border-radius:6px;
+    margin-top:15px;
+    cursor:pointer;
+    width:100%;
+    font-weight:bold;
+}
+button:hover{
+    background:#00ffaa;
+}
+.hidden{
+    display:none;
+}
+#error{
+    color:red;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="box" id="loginBox">
+    <h2>🔐 Nhập Key Truy Cập</h2>
+    <input type="password" id="codeInput" placeholder="Nhập key...">
+    <button onclick="checkCode()">Xác nhận</button>
+    <p id="error"></p>
+</div>
+
+<div class="box hidden" id="contentBox">
+    <h1>🇻🇳 Truy cập thành công!</h1>
+    <p>Chào mừng bạn đã nhập đúng key.</p>
+</div>
+
+<script>
+function checkCode(){
+    var correctCode = "Vietnam_FREE-1907";
+    var userCode = document.getElementById("codeInput").value;
+
+    if(userCode === correctCode){
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("contentBox").classList.remove("hidden");
+    } else {
+        document.getElementById("error").innerText = "❌ Sai key rồi!";
+    }
+}
+</script>
+
+</body>
+</html>
